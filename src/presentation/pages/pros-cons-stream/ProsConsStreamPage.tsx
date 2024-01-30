@@ -70,7 +70,7 @@ export const ProsConsStreamPage = () => {
     <div className="chat-container">
       <div className="chat-messages">
         <div className="grid grid-cols-12 gap-y-2">
-          <GptMessages message="¿Qué deseas que compare?"  />
+          <GptMessages message="Puedo ayudarte a comparar dos elementos, informándote sobre los pros y contras. Por ejemplo, ventajas y desventajas de viajar en tren versus avión."  />
           {
             messages.map((message, index) => (
               message.isGpt

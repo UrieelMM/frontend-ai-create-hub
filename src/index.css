@@ -21,6 +21,9 @@ h2 {
 h3{
   @apply text-2xl font-bold mb-4 text-indigo-400 underline;
 }
+ h4 strong {
+  @apply text-sm font-bold mb-4 text-indigo-400 underline;
+ }
 
 p {
   @apply mb-4;

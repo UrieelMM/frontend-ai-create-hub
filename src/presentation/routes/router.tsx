@@ -1,26 +1,26 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { AssistantPage, AudioToTextPage, ImageGenerationPage, OrtographyPage, ProsConsPage, ProsConsStreamPage, TextToAudioPage, TranslatePage, ImageTunningPage } from "../pages";
+import { AssistantPage, AudioToTextPage, ImageGenerationPage, ProsConsStreamPage, TextToAudioPage, TranslatePage, ImageTunningPage } from "../pages";
 import { DashboardLayout } from "../layout/DashboardLayout";
 
 export const menuRoutes = [
-  {
-    to: "/orthography",
-    icon: "fa-solid fa-spell-check",
-    title: "Ortografía",
-    description: "Corregir ortografía",
-    component: <OrtographyPage />
-  },
-  {
-    to: "/pros-cons",
-    icon: "fa-solid fa-code-compare",
-    title: "Pros & Cons",
-    description: "Comparar pros y contras",
-    component: <ProsConsPage />
-  },
+  // {
+  //   to: "/orthography",
+  //   icon: "fa-solid fa-spell-check",
+  //   title: "Ortografía",
+  //   description: "Corregir ortografía",
+  //   component: <OrtographyPage />
+  // },
+  // {
+  //   to: "/pros-cons",
+  //   icon: "fa-solid fa-code-compare",
+  //   title: "Pros & Cons",
+  //   description: "Comparar pros y contras",
+  //   component: <ProsConsPage />
+  // },
   {
     to: "/pros-cons-stream",
     icon: "fa-solid fa-water",
-    title: "Como stream",
+    title: "Pros & Cons",
     description: "Con stream de mensajes",
     component: <ProsConsStreamPage />
   },
@@ -39,6 +39,13 @@ export const menuRoutes = [
     component: <TextToAudioPage />
   },
   {
+    to: "/audio-to-text",
+    icon: "fa-solid fa-comment-dots",
+    title: "Audio a texto",
+    description: "Convertir audio a texto",
+    component: <AudioToTextPage />
+  },
+  {
     to: "/image-generation",
     icon: "fa-solid fa-image",
     title: "Imágenes",
@@ -51,13 +58,6 @@ export const menuRoutes = [
     title: "Editar imagen",
     description: "Generación continua",
     component: <ImageTunningPage />
-  },
-  {
-    to: "/audio-to-text",
-    icon: "fa-solid fa-comment-dots",
-    title: "Audio a texto",
-    description: "Convertir audio a texto",
-    component: <AudioToTextPage />
   },
   {
     to: "/assistant",

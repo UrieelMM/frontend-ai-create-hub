@@ -12,7 +12,7 @@ export const ChatTemplate = () => {
 
   const handlePostMessage = (message: string) => {
     setIsLoading(true);
-    setMessages([...messages, { message, isGpt: false }]);
+    setMessages((prev) => [...prev, { message: message, isGpt: false }]);
 
     //TODO: USE CASE
     setIsLoading(false);

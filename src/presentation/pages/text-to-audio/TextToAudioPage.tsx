@@ -17,7 +17,7 @@ interface AudioMessage {
 
 type Message = TextMessage | AudioMessage;
 
-const displaimer = "Hola, escribe el texto que deseas convertir a audio. Todo el audio es generado por IA*."
+const displaimer = "Ecribe el texto que deseas convertir a audio y elige una de las voces disponibles. Todo el audio es generado por IA*."
 
 const voices = [
   { id: "nova", text: "Nova" },
