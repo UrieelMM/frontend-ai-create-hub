@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { toast } from 'sonner';
 
 interface Props {
     onSendMessage: (message: string) => void;
@@ -11,7 +12,10 @@ export const TextMessageBox = ({ onSendMessage, placeholder, disableCorrections 
 
     const handleSendMessage = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if(!message.trim()) return;
+        if(!message.trim()) {
+            toast.error('Debes escribir un mensaje.')
+            return;
+        }
         onSendMessage(message);
         setMessage('');
     }
@@ -21,7 +25,7 @@ export const TextMessageBox = ({ onSendMessage, placeholder, disableCorrections 
             className="flex flex-row items-center h-16 bg-white w-full px-4 rounded-xl">
             <div className="flex-grow">
                 <div className="relative w-full">
-                    <input type="text" autoFocus className="flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-500 p-2"
+                    <input type="text" autoFocus className="flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-cyan-500 p-2"
                         placeholder={placeholder}
                         autoComplete={disableCorrections ? "on" : "off"}
                         autoCorrect={disableCorrections ? "on" : "off"}

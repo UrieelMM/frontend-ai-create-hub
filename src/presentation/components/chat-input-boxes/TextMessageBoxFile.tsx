@@ -55,7 +55,7 @@ export const TextMessageBoxFile = ({
           <input
             type="text"
             autoFocus
-            className="flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-500 p-2"
+            className="flex w-full border rounded-xl text-gray-800 focus:outline-none focus:border-cyan-500 p-2"
             placeholder={placeholder}
             autoComplete={disableCorrections ? "on" : "off"}
             autoCorrect={disableCorrections ? "on" : "off"}

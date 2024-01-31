@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { toast } from 'sonner';
 
 interface Props {
   onSendMessage: (message: string, selectedOption: string) => void;
@@ -23,8 +24,14 @@ export const TextMessageBoxSelect = ({
 
   const handleSendMessage = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!message.trim()) return;
-    if(!selectedOption) return;
+    if (!message.trim()){
+      toast.error('Debes escribir un mensaje.')
+      return;
+    }
+    if(!selectedOption){
+      toast.error('Debes seleccionar una opción.')
+      return;
+    }
     if(selectedOption === "") return;
     
     onSendMessage(message, selectedOption);
@@ -41,7 +48,7 @@ export const TextMessageBoxSelect = ({
           <input
             type="text"
             autoFocus
-            className="w-full border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-500 p-2"
+            className="w-full border rounded-xl text-gray-800 focus:outline-none focus:border-cyan-500 p-2"
             placeholder={placeholder}
             autoComplete={disableCorrections ? "on" : "off"}
             autoCorrect={disableCorrections ? "on" : "off"}
@@ -52,7 +59,7 @@ export const TextMessageBoxSelect = ({
 
           <select
             name="select"
-            className="w-2/5 ml-5 border rounded-xl text-gray-800 focus:outline-none focus:border-indigo-300 pl-4 h-10"
+            className="w-2/5 ml-5 border rounded-xl text-gray-800 focus:outline-none focus:border-cyan-300 pl-4 h-10"
             value={selectedOption}
             onChange={(e) => setSelectedOption(e.target.value)}
           >

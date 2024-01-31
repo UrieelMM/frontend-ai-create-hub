@@ -13,7 +13,7 @@ const Sidebar = () => {
                         className={
                             ({ isActive }) => (
                                 isActive
-                                    ? "flex flex-row justify-between items-center text-white bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 p-2 rounded-md"
+                                    ? "flex flex-row justify-between items-center text-white bg-gradient-to-br from-cyan-500 via-cyan-600 to-cyan-700 p-2 rounded-md"
                                     : "flex flex-row justify-between items-center text-white bg-transparent p-2 rounded-md hover:bg-white hover:bg-opacity-10"
                             )
                         }

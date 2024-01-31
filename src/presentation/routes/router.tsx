@@ -1,5 +1,5 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { AssistantPage, AudioToTextPage, ImageGenerationPage, ProsConsStreamPage, TextToAudioPage, TranslatePage, ImageTunningPage } from "../pages";
+import { AudioToTextPage, ImageGenerationPage, ProsConsStreamPage, TextToAudioPage, TranslatePage } from "../pages";
 import { DashboardLayout } from "../layout/DashboardLayout";
 
 export const menuRoutes = [
@@ -52,20 +52,20 @@ export const menuRoutes = [
     description: "Generar imágenes",
     component: <ImageGenerationPage />
   },
-  {
-    to: "/image-tunning",
-    icon: "fa-solid fa-wand-magic",
-    title: "Editar imagen",
-    description: "Generación continua",
-    component: <ImageTunningPage />
-  },
-  {
-    to: "/assistant",
-    icon: "fa-solid fa-user",
-    title: "Asistente",
-    description: "Información del asistente",
-    component: <AssistantPage />
-  },
+  // {
+  //   to: "/image-tunning",
+  //   icon: "fa-solid fa-wand-magic",
+  //   title: "Editar imagen",
+  //   description: "Generación continua",
+  //   component: <ImageTunningPage />
+  // },
+  // {
+  //   to: "/assistant",
+  //   icon: "fa-solid fa-user",
+  //   title: "Asistente",
+  //   description: "Información del asistente",
+  //   component: <AssistantPage />
+  // },
 ];
 
 export const routes = createBrowserRouter([
