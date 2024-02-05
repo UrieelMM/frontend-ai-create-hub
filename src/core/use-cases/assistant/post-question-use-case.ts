@@ -3,7 +3,7 @@ import { QuestionAssistantResponse } from "../../../interfaces";
 
 export const postQuestionCase = async (threadId: string, question: string) => {
     try {
-        const response = await fetch(`${import.meta.env.VITE_API_IA_ASSISTANT_SERVER}/user-question`, {
+        const response = await fetch(`https://ai-create-hub-877e33d37582.herokuapp.com/ia-assistant/user-question`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

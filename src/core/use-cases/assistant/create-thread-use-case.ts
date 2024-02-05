@@ -3,7 +3,7 @@
 
 export const createThreadCase = async () => {
     try {
-        const response = await fetch(`${import.meta.env.VITE_API_IA_ASSISTANT_SERVER}/create-thread`, {
+        const response = await fetch(`https://ai-create-hub-877e33d37582.herokuapp.com/ia-assistant/create-thread`, {
             method: "POST",
         });
 
