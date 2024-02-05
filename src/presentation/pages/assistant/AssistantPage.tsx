@@ -39,30 +39,30 @@ export const AssistantPage = () => {
   }, []);
 
   //get list messages when page load
+  const getListMessages = async () => {
+    try {
+      const replies = await getListMessagesCase(threadId);
+
+      if (!Array.isArray(replies)) return;
+
+      for (const reply of replies) {
+        for (const message of reply.content) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              message: message,
+              isGpt: reply.role === "assistant",
+              info: reply,
+            },
+          ]);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     if (!threadId) return;
-    const getListMessages = async () => {
-      try {
-        const replies = await getListMessagesCase(threadId);
-
-        if (!Array.isArray(replies)) return;
-
-        for (const reply of replies) {
-          for (const message of reply.content) {
-            setMessages((prev) => [
-              ...prev,
-              {
-                message: message,
-                isGpt: reply.role === "assistant",
-                info: reply,
-              },
-            ]);
-          }
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getListMessages();
   }, [threadId]);
 
@@ -84,18 +84,40 @@ export const AssistantPage = () => {
     setMessages((prev) => [...prev, { message: message, isGpt: false }]);
 
     //TODO: USE CASE
-    const replies = await postQuestionCase(threadId, message);
+    const timeoutId = setTimeout(() => {
+      console.warn(
+        "La API tardó demasiado en responder. Recargando la página..."
+      );
+      // Recarga la página después de 40 segundos si no hay respuesta
+      getListMessages();
+    }, 50000);
 
-    //Clean messages
-    setMessages([]);
+    try {
+      // TODO: USE CASE
+      const replies = await postQuestionCase(threadId, message);
 
-    for (const reply of replies) {
-      for (const message of reply.content) {
-        setMessages((prev) => [
-          ...prev,
-          { message: message, isGpt: reply.role === "assistant", info: reply },
-        ]);
+      // Limpiar mensajes
+      setMessages([]);
+
+      for (const reply of replies) {
+        for (const message of reply.content) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              message: message,
+              isGpt: reply.role === "assistant",
+              info: reply,
+            },
+          ]);
+        }
       }
+    } catch (error) {
+      console.error("Error al llamar a la API", error);
+      getListMessages();
+    } finally {
+      setIsLoading(false);
+      // Limpiar el temporizador si la respuesta llega antes de los 40 segundos
+      clearTimeout(timeoutId);
     }
     setIsLoading(false);
   };
