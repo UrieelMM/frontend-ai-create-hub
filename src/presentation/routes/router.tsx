@@ -1,22 +1,22 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { AudioToTextPage, ImageGenerationPage, ProsConsStreamPage, TextToAudioPage, TranslatePage } from "../pages";
+import { AssistantPage, AudioToTextPage, ImageGenerationPage, ImageTunningPage, OrtographyPage, ProsConsPage, ProsConsStreamPage, TextToAudioPage, TranslatePage } from "../pages";
 import { DashboardLayout } from "../layout/DashboardLayout";
 
 export const menuRoutes = [
-  // {
-  //   to: "/orthography",
-  //   icon: "fa-solid fa-spell-check",
-  //   title: "Ortografía",
-  //   description: "Corregir ortografía",
-  //   component: <OrtographyPage />
-  // },
-  // {
-  //   to: "/pros-cons",
-  //   icon: "fa-solid fa-code-compare",
-  //   title: "Pros & Cons",
-  //   description: "Comparar pros y contras",
-  //   component: <ProsConsPage />
-  // },
+  {
+    to: "/orthography",
+    icon: "fa-solid fa-spell-check",
+    title: "Ortografía",
+    description: "Corregir ortografía",
+    component: <OrtographyPage />
+  },
+  {
+    to: "/pros-cons",
+    icon: "fa-solid fa-code-compare",
+    title: "Pros & Cons",
+    description: "Comparar pros y contras",
+    component: <ProsConsPage />
+  },
   {
     to: "/pros-cons-stream",
     icon: "fa-solid fa-water",
@@ -52,20 +52,20 @@ export const menuRoutes = [
     description: "Generar imágenes",
     component: <ImageGenerationPage />
   },
-  // {
-  //   to: "/image-tunning",
-  //   icon: "fa-solid fa-wand-magic",
-  //   title: "Editar imagen",
-  //   description: "Generación continua",
-  //   component: <ImageTunningPage />
-  // },
-  // {
-  //   to: "/assistant",
-  //   icon: "fa-solid fa-user",
-  //   title: "Asistente",
-  //   description: "Información del asistente",
-  //   component: <AssistantPage />
-  // },
+  {
+    to: "/image-tunning",
+    icon: "fa-solid fa-wand-magic",
+    title: "Editar imagen",
+    description: "Generación continua",
+    component: <ImageTunningPage />
+  },
+  {
+    to: "/assistant",
+    icon: "fa-solid fa-user",
+    title: "Asistente",
+    description: "Información del asistente",
+    component: <AssistantPage />
+  },
 ];
 
 export const routes = createBrowserRouter([
