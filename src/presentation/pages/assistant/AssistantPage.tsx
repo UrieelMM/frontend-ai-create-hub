@@ -104,7 +104,7 @@ export const AssistantPage = () => {
     <div className="chat-container">
       <div className="chat-messages">
         <div className="grid grid-cols-12 gap-y-2">
-          <GptMessages message="Hola, soy Math Brain, puedo ayudarte a resolver problemas matemáticos." />
+          <GptMessages message="¡Hola! Soy tu asistente de estudio. Puedo ayudarte con cualquier duda que tengas respecto a tus materias." />
           {messages.map((message, index) =>
             message.isGpt ? (
               <GptMessages key={index} message={message.message} />
